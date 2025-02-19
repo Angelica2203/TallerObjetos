@@ -32,6 +32,23 @@ public class Metodos
         }
         return m;
     }
+    public ObjProductos[][]  LlenarMatrizObjetualP2(int d)
+    {
+        ObjProductos[][] m = new ObjProductos[d][d];
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m.length; j++) 
+            {
+                ObjProductos obj = new ObjProductos(); //No olvidar poner eso siempre 
+
+                System.out.println("Ingrese la cantidad: ");
+                obj.setCantidad(sc.nextInt());
+                m[i][j] = obj;
+
+            }   
+        }
+        return m;
+    }
     public void MostrarMatrizObjetual(ObjProductos[][] m)
     {
         for (int i = 0; i < m.length; i++) 
@@ -40,6 +57,20 @@ public class Metodos
             {
                 System.out.println("Nombre: " + m[i][j].getNombre());
                 System.out.println("Precio: " + m[i][j].getPrecio());
+                System.out.println("Cantidad: " + m[i][j].getCantidad());
+                System.out.println("\n");
+                
+            }
+            
+        }
+    }
+    public void MostrarMatrizObjetualP2(ObjProductos[][] m)
+    {
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m.length; j++) 
+            {
+
                 System.out.println("Cantidad: " + m[i][j].getCantidad());
                 System.out.println("\n");
                 
@@ -61,6 +92,18 @@ public class Metodos
 
             }
         }
+    }
+    public int sumaMatriz( ObjProductos[][] m)
+    {
+        int acum = 0;
+        for( int i = 0; i < m.length; i ++)
+        {
+            for( int j = 0; j < m.length; j ++)
+            {
+                acum += m[i][j].getCantidad();
+            }
+        }
+        return acum;
     }
 
     
