@@ -11,10 +11,10 @@ public class principal
         System.out.println("Ingrese el punto que requiere visualizar del 1 al 10: ");
         opt = sc.nextInt();
         int d = m.SolicitarDimension();
-        //ObjPersonas [][] M = new ObjPersonas[d][d];
         switch (opt) {
             case 1:
-                
+                p1 punto1 = new p1();
+                punto1.punto1(d);
                 break;
             case 2:
                 
@@ -45,6 +45,7 @@ public class principal
                 break;
         
             default:
+                System.out.println("En matenimiento");
                 break;
         }
         
