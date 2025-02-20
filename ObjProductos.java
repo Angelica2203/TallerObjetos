@@ -14,22 +14,28 @@ public class ObjProductos
         this.precio = precio;
         this.cantidad = cantidad;
     }
-    public String getNombre() {
+    public String getNombre() 
+    {
         return nombre;
     }
-    public double getPrecio() {
+    public double getPrecio() 
+    {
         return precio;
     }
-    public int getCantidad() {
+    public int getCantidad() 
+    {
         return cantidad;
     }
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) 
+    {
         this.nombre = nombre;
     }
-    public void setPrecio(double precio) {
+    public void setPrecio(double precio) 
+    {
         this.precio = precio;
     }
-    public void setCantidad(int cantidad) {
+    public void setCantidad(int cantidad) 
+    {
         this.cantidad = cantidad;
     }
     

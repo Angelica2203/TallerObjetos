@@ -49,6 +49,27 @@ public class Metodos
         }
         return m;
     }
+    public ObjLibro[][]  LlenarMatrizObjetualP3(int d)
+    {
+        ObjLibro[][] m = new ObjLibro[d][d];
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m.length; j++) 
+            {
+                ObjLibro obj = new ObjLibro(); //No olvidar poner eso siempre 
+
+                System.out.println("Ingrese el titulo: ");
+                obj.setTitulo(sc.next()); 
+                System.out.println("Ingrese el autor: ");
+                obj.setAutor(sc.next());
+                System.out.println("Ingrese la precio: ");
+                obj.setPrecio(sc.nextDouble());
+                m[i][j] = obj;
+
+            }   
+        }
+        return m;
+    }
     public void MostrarMatrizObjetual(ObjProductos[][] m)
     {
         for (int i = 0; i < m.length; i++) 
@@ -78,6 +99,22 @@ public class Metodos
             
         }
     }
+    public void MostrarMatrizObjetualP3(ObjLibro[][] m)
+    {
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m.length; j++) 
+            {
+                System.out.println("Nombre: " + m[i][j].getTitulo());
+                System.out.println("Precio: " + m[i][j].getAutor());
+                System.out.println("Cantidad: " + m[i][j].getPrecio());
+                System.out.println("\n");
+                
+            }
+            
+        }
+    }
+
     public void buscarProductoPorNombre(ObjProductos[][] m, String nomProd) 
     {
         //int [] pos = new int[2]
@@ -104,6 +141,19 @@ public class Metodos
             }
         }
         return acum;
+    }
+    public ObjLibro mayorMatriz (ObjLibro [][]m)
+    {
+        ObjLibro myPrecio= m[0][0];
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m[0].length; j++) 
+            { 
+                if(m[i][j].getPrecio() > myPrecio.getPrecio())
+                    myPrecio = m[i][j];               
+            } 
+        }
+        return myPrecio;
     }
 
     
