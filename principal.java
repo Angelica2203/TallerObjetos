@@ -9,9 +9,15 @@ public class principal
         Scanner sc = new Scanner(System.in);
         int opt = 0;
         System.out.println("Ingrese el punto que requiere visualizar del 1 al 10: ");
+        while (!sc.hasNextInt()) //negar la respuestas 
+        {
+            System.out.println("dato incorrecto");
+            sc.next();     
+        }
         opt = sc.nextInt();
         int d = m.SolicitarDimension();
-        switch (opt) {
+        switch (opt) 
+        {
             case 1:
                 p1 punto1 = new p1();
                 punto1.punto1(d);
