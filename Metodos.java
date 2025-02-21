@@ -155,6 +155,71 @@ public class Metodos
         }
         return myPrecio;
     }
+    public ObjAsiento [] MatrizAVector(ObjAsiento [][]m)
+    {
+        ObjAsiento [] v = new ObjAsiento[m.length * m[0].length];
+        int k = 0;
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m[0].length; j++) 
+            { 
+                v[k++] = m[i][j];              
+            } 
+        }
+        return v;
+    }
+    public ObjAsiento[] ordenarVectorDeMayorAMenor(ObjAsiento[] vector) 
+    {
+        int n = vector.length;
+        for (int i = 0; i < n - 1; i++) 
+        {
+            for (int j = 0; j < n - 1 - i; j++) 
+            {
+                if (vector[j].getPrecio() < vector[j + 1].getPrecio()) 
+                {
+                    // Intercambiar los elementos
+                    ObjAsiento temp = vector[j];
+                    vector[j] = vector[j + 1];
+                    vector[j + 1] = temp;
+                }
+            }
+        }
+        return vector;
+    }
+    public ObjAsiento[][] vectorAMatriz(ObjAsiento[] vector, ObjAsiento[][]ma) 
+    {
+        int n = 0;
+        for (int i = 0; i < ma.length; i++) 
+        {
+            for (int j = 0; j < ma.length; j++) 
+            {
+                ma[i][j] = vector[n++];
+            }
+        }
 
+        return ma;
+    }
+
+
+    /*public ObjAsiento[][] ordenarAsientosPorPrecio(ObjAsiento[][] matriz) 
+    {
+        for (int i = 0; i < matriz.length; i++) 
+        {
+            for (int j = 0; j < matriz[i].length - 1; j++) 
+            {
+                for (int k = 0; k < matriz[i].length - j - 1; k++) 
+                {
+                    if (matriz[i][k].getPrecio() > matriz[i][k + 1].getPrecio()) 
+                    {
+                        // Intercambiar los asientos
+                        ObjAsiento temp = matriz[i][k];
+                        matriz[i][k] = matriz[i][k + 1];
+                        matriz[i][k + 1] = temp;
+                    }
+                }
+            }
+        }
+        return matriz; //solo es por filas ordena las filas no toda la matriz
+    }*/
     
 }
