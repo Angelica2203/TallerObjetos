@@ -63,6 +63,12 @@ public class Metodos
                 System.out.println("Ingrese el autor: ");
                 obj.setAutor(sc.next());
                 System.out.println("Ingrese la precio: ");
+                while (!sc.hasNextDouble()) 
+                {
+                    System.out.println("El valor del precio es incorrecto");
+                    sc.next();
+                    
+                }
                 obj.setPrecio(sc.nextDouble());
                 m[i][j] = obj;
 
