@@ -8,36 +8,12 @@ public class principal
         Metodos m = new Metodos();
         Scanner sc = new Scanner(System.in);
         int opt = 0;
-<<<<<<< HEAD
-        System.out.println("Ingrese el punto que requiere visualizar del 1 al 10: ");
-        opt = sc.nextInt();
-        int d = m.SolicitarDimension();
-        switch (opt) {
-            case 1:
-                p1 punto1 = new p1();
-                punto1.punto1(d);
-                break;
-            case 2:
-                p2 punto2 = new p2();
-                punto2.punto2(d);
-                break;
-            case 3:
-                p3 punto3 = new p3();
-                punto3.punto3(d);
-                break;
-            case 4:
-                p4 punto4 = new p4();
-                punto4.punto4(d);
-                break;
-            case 5:
-=======
         boolean continua = true;
         while (continua) 
         {        
             System.out.println("Ingrese el punto que requiere visualizar del 1 al 10: ");
             while (!sc.hasNextInt()) //negar la respuestas 
             {
-                
                 System.out.println("dato incorrecto, ingrese otra vez el numero");
                 sc.next();     
             }
@@ -58,8 +34,8 @@ public class principal
                     punto3.punto3(d);
                     break;
                 case 4:
->>>>>>> e1be14b743916aa2671622ba24cef5cbc5f33ee7
-                
+                    p4 punto4 = new p4();
+                    punto4.punto4(d);
                     break;
                 case 5:
                 
