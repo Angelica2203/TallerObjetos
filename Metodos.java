@@ -207,11 +207,11 @@ public class Metodos
     }
     public ObjSupermercado[][] ProductosDisponibles(ObjSupermercado[][] m) 
     {
-        ObjSupermercado[][] matrizFiltrada = new ObjSupermercado[m.length][m.length];
+        ObjSupermercado[][] matrizFiltrada = new ObjSupermercado[m.length][];
 
         for (int i = 0; i < m.length; i++) 
         {
-            matrizFiltrada[i] = new ObjSupermercado[m[i].length];
+            matrizFiltrada[i] = new ObjSupermercado[m[i].length];//Para el tamaño de las columnas 
             for (int j = 0; j < m.length; j++) 
             {
                 if (m[i][j].isDisponibilidad()) 
