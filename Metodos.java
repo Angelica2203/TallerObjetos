@@ -205,6 +205,27 @@ public class Metodos
 
         return ma;
     }
+    public ObjSupermercado[][] ProductosDisponibles(ObjSupermercado[][] m) 
+    {
+        ObjSupermercado[][] matrizFiltrada = new ObjSupermercado[m.length][m.length];
+
+        for (int i = 0; i < m.length; i++) 
+        {
+            matrizFiltrada[i] = new ObjSupermercado[m[i].length];
+            for (int j = 0; j < m.length; j++) 
+            {
+                if (m[i][j].isDisponibilidad()) 
+                {
+                    matrizFiltrada[i][j] = m[i][j];
+                } 
+                else 
+                {
+                    matrizFiltrada[i][j] = null;
+                }
+            }
+        }
+        return matrizFiltrada;
+    }
 
 
     /*public ObjAsiento[][] ordenarAsientosPorPrecio(ObjAsiento[][] matriz) 
