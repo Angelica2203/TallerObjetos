@@ -226,6 +226,60 @@ public class Metodos
         }
         return matrizFiltrada;
     }
+    public ObjEstudiante[] CalificacionUnica(ObjEstudiante[][] m)
+    {
+        // Contar calificaciones únicas
+        ObjEstudiante[] calificacionesUnicas = new ObjEstudiante[m.length * 2];
+        int count = 0;
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m.length; j++) 
+            {
+                String calificacion = m[i][j].getCalificacion();
+                boolean existe = false;
+                for (int k = 0; k < count; k++) 
+                {
+                    if (calificacionesUnicas[k].getCalificacion().equals(calificacion)) 
+                    {
+                        existe = true;
+                        break;
+                    }
+                }
+                if (!existe) 
+                {
+                    calificacionesUnicas[count++] = m[i][j];
+                }
+            }
+        }
+        return calificacionesUnicas;
+    }
+    public void MatrizXCalificacion(ObjEstudiante[][]m, ObjEstudiante[] Unicas )
+    {
+        // Crear y mostrar matrices para cada calificación única
+        int count = Unicas.length;
+        for (int k = 0; k < count; k++) 
+        {
+            String calificacionActual = Unicas[k].getCalificacion();
+            ObjEstudiante[][] grupo = new ObjEstudiante[m.length][m.length];
+            
+            for (int i = 0; i < m.length; i++) 
+            {
+                for (int j = 0; j < m.length; j++) 
+                {
+                    if (m[i][j].getCalificacion().equals(calificacionActual)) 
+                    {
+                        grupo[i][j] = m[i][j];
+                    }
+                }
+            }
+            
+            System.out.println("Grupo " + calificacionActual + ":");
+            ObjEstudiante O = new ObjEstudiante();
+            O.MostrarMatrizObjetual(grupo);
+        }
+    }
+}
+
 
 
     /*public ObjAsiento[][] ordenarAsientosPorPrecio(ObjAsiento[][] matriz) 
@@ -249,4 +303,4 @@ public class Metodos
         return matriz; //solo es por filas ordena las filas no toda la matriz
     }*/
     
-}
+

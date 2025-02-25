@@ -45,7 +45,7 @@ public class ObjProducto5
         ObjProducto5[][] m = new ObjProducto5[d][d];
         for (int i = 0; i < m.length; i++) 
         {
-            for (int j = 0; j < m.length; j++) 
+            for (int j = 0; j < m[0].length; j++) 
             {
                 ObjProducto5 obj = new ObjProducto5(); //No olvidar poner eso siempre 
 
@@ -65,7 +65,7 @@ public class ObjProducto5
     {
         for (int i = 0; i < m.length; i++) 
         {
-            for (int j = 0; j < m.length; j++) 
+            for (int j = 0; j < m[0].length; j++) 
             {
                 System.out.println("Nombre: " + m[i][j].getNombre());
                 System.out.println("Precio: " + m[i][j].getPrecio());
