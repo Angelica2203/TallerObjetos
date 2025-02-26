@@ -350,7 +350,59 @@ public class Metodos
             return m1;
         }
     }
+    public ObjListaProducto[] Categoria(ObjListaProducto[][] m)
+    {
+        // Contar calificaciones únicas
+        ObjListaProducto[] categoriaUnicas = new ObjListaProducto[m.length * 2];
+        int count = 0;
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m.length; j++) 
+            {
+                String categoria = m[i][j].getCategoria();
+                boolean existe = false;
+                for (int k = 0; k < count; k++) 
+                {
+                    if (categoriaUnicas[k].getCategoria().equalsIgnoreCase(categoria)) 
+                    {
+                        existe = true;
+                        break;
+                    }
+                }
+                if (!existe) 
+                {
+                    categoriaUnicas[count++] = m[i][j];
+                }
+            }
+        }
+        return categoriaUnicas;
+    }
+    public void MatrizXCategoria(ObjListaProducto[][]m, ObjListaProducto[] Unicas )
+    {
+        // Crear y mostrar matrices para cada calificación única
+        int count = Unicas.length;
+        for (int k = 0; k < count; k++) 
+        {
+            String categoriaActual = Unicas[k].getCategoria();
+            ObjListaProducto[][] grupo = new ObjListaProducto[m.length][m.length];
+            
+            for (int i = 0; i < m.length; i++) 
+            {
+                for (int j = 0; j < m.length; j++) 
+                {
+                    if (m[i][j].getCategoria().equalsIgnoreCase(categoriaActual)) 
+                    {
+                        grupo[i][j] = m[i][j];
+                    }
+                }
+            }
+            System.out.println("\nCategoria " + categoriaActual + ":");
+            ObjListaProducto O = new ObjListaProducto();
+            O.MostrarMatrizObjetual(grupo);
+        }
+    }
 }
+
     
 
 
