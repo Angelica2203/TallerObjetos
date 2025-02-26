@@ -12,5 +12,4 @@ public class p7
         ObjEstudiante[] vec = m.CalificacionUnica(M);
         m.MatrizXCalificacion(M, vec);
     }
-    
 }
