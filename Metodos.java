@@ -205,6 +205,80 @@ public class Metodos
 
         return ma;
     }
+    public ObjProducto5[][] SumarStock(ObjProducto5[][] m1, ObjProducto5[][]m2)
+    {
+        if (((m1.length * m1[0].length) > (m2.length * m2[0].length))) 
+        {
+            for (int i = 0; i < m1.length; i++) 
+            {
+                for (int j = 0; j < m1[0].length; j++) 
+                {
+                    for (int i2 = 0; i2 < m2.length; i2++) 
+                    {
+                        for (int j2 = 0; j2 < m2[0].length; j2++) 
+                        {
+                            if (m1[i][j].getNombre().equalsIgnoreCase(m2[i2][j2].getNombre())) 
+                            {
+                                m1[i][j].setStock(m1[i][j].getStock() + m2[i2][j2].getStock());   
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            return m1;
+        }
+        else if (((m1.length * m1[0].length) < (m2.length * m2[0].length))) 
+        {
+            for (int i = 0; i < m2.length; i++) 
+            {
+                for (int j = 0; j < m2[0].length; j++) 
+                {
+                    for (int i2 = 0; i2 < m1.length; i2++) 
+                    {
+                        for (int j2 = 0; j2 < m1[0].length; j2++) 
+                        {
+                            if (m2[i][j].getNombre().equalsIgnoreCase(m1[i2][j2].getNombre())) 
+                            {
+                                m2[i][j].setStock(m1[i][j].getStock() + m2[i2][j2].getStock());   
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            return m2;
+        }
+        else
+        {
+            for (int i = 0; i < m1.length; i++) 
+            {
+                for (int j = 0; j < m1[0].length; j++) 
+                {
+                    for (int i2 = 0; i2 < m2.length; i2++) 
+                    {
+                        for (int j2 = 0; j2 < m2[0].length; j2++) 
+                        {
+                            if (m1[i][j].getNombre().equalsIgnoreCase(m2[i2][j2].getNombre())) 
+                            {
+                                m1[i][j].setStock(m1[i][j].getStock() + m2[i2][j2].getStock());   
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            return m1;
+        }
+        
+    }
+    
 
 
     /*public ObjAsiento[][] ordenarAsientosPorPrecio(ObjAsiento[][] matriz) 

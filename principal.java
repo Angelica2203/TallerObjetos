@@ -38,7 +38,8 @@ public class principal
                     punto4.punto4(d);
                     break;
                 case 5:
-                
+                    p5 punto5 = new p5();
+                    punto5.punto5();
                     break;
                 case 6:
                 
