@@ -205,6 +205,79 @@ public class Metodos
 
         return ma;
     }
+    public ObjSupermercado[][] ProductosDisponibles(ObjSupermercado[][] m) 
+    {
+        ObjSupermercado[][] matrizFiltrada = new ObjSupermercado[m.length][];
+
+        for (int i = 0; i < m.length; i++) 
+        {
+            matrizFiltrada[i] = new ObjSupermercado[m[i].length];//Para el tamaño de las columnas 
+            for (int j = 0; j < m.length; j++) 
+            {
+                if (m[i][j].isDisponibilidad()) 
+                {
+                    matrizFiltrada[i][j] = m[i][j];
+                } 
+                else 
+                {
+                    matrizFiltrada[i][j] = null;
+                }
+            }
+        }
+        return matrizFiltrada;
+    }
+    public ObjEstudiante[] CalificacionUnica(ObjEstudiante[][] m)
+    {
+        // Contar calificaciones únicas
+        ObjEstudiante[] calificacionesUnicas = new ObjEstudiante[m.length * 2];
+        int count = 0;
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m.length; j++) 
+            {
+                String calificacion = m[i][j].getCalificacion();
+                boolean existe = false;
+                for (int k = 0; k < count; k++) 
+                {
+                    if (calificacionesUnicas[k].getCalificacion().equals(calificacion)) 
+                    {
+                        existe = true;
+                        break;
+                    }
+                }
+                if (!existe) 
+                {
+                    calificacionesUnicas[count++] = m[i][j];
+                }
+            }
+        }
+        return calificacionesUnicas;
+    }
+    public void MatrizXCalificacion(ObjEstudiante[][]m, ObjEstudiante[] Unicas )
+    {
+        // Crear y mostrar matrices para cada calificación única
+        int count = Unicas.length;
+        for (int k = 0; k < count; k++) 
+        {
+            String calificacionActual = Unicas[k].getCalificacion();
+            ObjEstudiante[][] grupo = new ObjEstudiante[m.length][m.length];
+            
+            for (int i = 0; i < m.length; i++) 
+            {
+                for (int j = 0; j < m.length; j++) 
+                {
+                    if (m[i][j].getCalificacion().equals(calificacionActual)) 
+                    {
+                        grupo[i][j] = m[i][j];
+                    }
+                }
+            }
+            
+            System.out.println("Grupo " + calificacionActual + ":");
+            ObjEstudiante O = new ObjEstudiante();
+            O.MostrarMatrizObjetual(grupo);
+        }
+    }
     public ObjProducto5[][] SumarStock(ObjProducto5[][] m1, ObjProducto5[][]m2)
     {
         if (((m1.length * m1[0].length) > (m2.length * m2[0].length))) 
