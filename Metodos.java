@@ -205,81 +205,80 @@ public class Metodos
 
         return ma;
     }
-    public ObjSupermercado[][] ProductosDisponibles(ObjSupermercado[][] m) 
+    public ObjProducto5[][] SumarStock(ObjProducto5[][] m1, ObjProducto5[][]m2)
     {
-        ObjSupermercado[][] matrizFiltrada = new ObjSupermercado[m.length][];
-
-        for (int i = 0; i < m.length; i++) 
+        if (((m1.length * m1[0].length) > (m2.length * m2[0].length))) 
         {
-            matrizFiltrada[i] = new ObjSupermercado[m[i].length];//Para el tamaño de las columnas 
-            for (int j = 0; j < m.length; j++) 
+            for (int i = 0; i < m1.length; i++) 
             {
-                if (m[i][j].isDisponibilidad()) 
+                for (int j = 0; j < m1[0].length; j++) 
                 {
-                    matrizFiltrada[i][j] = m[i][j];
-                } 
-                else 
-                {
-                    matrizFiltrada[i][j] = null;
-                }
-            }
-        }
-        return matrizFiltrada;
-    }
-    public ObjEstudiante[] CalificacionUnica(ObjEstudiante[][] m)
-    {
-        // Contar calificaciones únicas
-        ObjEstudiante[] calificacionesUnicas = new ObjEstudiante[m.length * 2];
-        int count = 0;
-        for (int i = 0; i < m.length; i++) 
-        {
-            for (int j = 0; j < m.length; j++) 
-            {
-                String calificacion = m[i][j].getCalificacion();
-                boolean existe = false;
-                for (int k = 0; k < count; k++) 
-                {
-                    if (calificacionesUnicas[k].getCalificacion().equals(calificacion)) 
+                    for (int i2 = 0; i2 < m2.length; i2++) 
                     {
-                        existe = true;
-                        break;
+                        for (int j2 = 0; j2 < m2[0].length; j2++) 
+                        {
+                            if (m1[i][j].getNombre().equalsIgnoreCase(m2[i2][j2].getNombre())) 
+                            {
+                                m1[i][j].setStock(m1[i][j].getStock() + m2[i2][j2].getStock());   
+                            }
+                        }
+                        
                     }
+                    
                 }
-                if (!existe) 
-                {
-                    calificacionesUnicas[count++] = m[i][j];
-                }
+                
             }
+            return m1;
         }
-        return calificacionesUnicas;
-    }
-    public void MatrizXCalificacion(ObjEstudiante[][]m, ObjEstudiante[] Unicas )
-    {
-        // Crear y mostrar matrices para cada calificación única
-        int count = Unicas.length;
-        for (int k = 0; k < count; k++) 
+        else if (((m1.length * m1[0].length) < (m2.length * m2[0].length))) 
         {
-            String calificacionActual = Unicas[k].getCalificacion();
-            ObjEstudiante[][] grupo = new ObjEstudiante[m.length][m.length];
-            
-            for (int i = 0; i < m.length; i++) 
+            for (int i = 0; i < m2.length; i++) 
             {
-                for (int j = 0; j < m.length; j++) 
+                for (int j = 0; j < m2[0].length; j++) 
                 {
-                    if (m[i][j].getCalificacion().equals(calificacionActual)) 
+                    for (int i2 = 0; i2 < m1.length; i2++) 
                     {
-                        grupo[i][j] = m[i][j];
+                        for (int j2 = 0; j2 < m1[0].length; j2++) 
+                        {
+                            if (m2[i][j].getNombre().equalsIgnoreCase(m1[i2][j2].getNombre())) 
+                            {
+                                m2[i][j].setStock(m1[i][j].getStock() + m2[i2][j2].getStock());   
+                            }
+                        }
+                        
                     }
+                    
                 }
+                
             }
-            
-            System.out.println("Grupo " + calificacionActual + ":");
-            ObjEstudiante O = new ObjEstudiante();
-            O.MostrarMatrizObjetual(grupo);
+            return m2;
+        }
+        else
+        {
+            for (int i = 0; i < m1.length; i++) 
+            {
+                for (int j = 0; j < m1[0].length; j++) 
+                {
+                    for (int i2 = 0; i2 < m2.length; i2++) 
+                    {
+                        for (int j2 = 0; j2 < m2[0].length; j2++) 
+                        {
+                            if (m1[i][j].getNombre().equalsIgnoreCase(m2[i2][j2].getNombre())) 
+                            {
+                                m1[i][j].setStock(m1[i][j].getStock() + m2[i2][j2].getStock());   
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            return m1;
         }
     }
 }
-
+    
 
 
     /*public ObjAsiento[][] ordenarAsientosPorPrecio(ObjAsiento[][] matriz) 

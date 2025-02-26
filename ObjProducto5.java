@@ -40,12 +40,12 @@ public class ObjProducto5
     {
         this.stock = stock;
     }
-    public ObjProducto5[][]  LlenarMatrizObjetual(int d)
+    public ObjProducto5[][]  LlenarMatrizObjetual(int f, int c)
     {
-        ObjProducto5[][] m = new ObjProducto5[d][d];
-        for (int i = 0; i < m.length; i++) 
+        ObjProducto5[][] m = new ObjProducto5[f][c];
+        for (int i = 0; i < f; i++) 
         {
-            for (int j = 0; j < m[0].length; j++) 
+            for (int j = 0; j < c; j++) 
             {
                 ObjProducto5 obj = new ObjProducto5(); //No olvidar poner eso siempre 
 
