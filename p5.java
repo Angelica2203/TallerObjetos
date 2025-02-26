@@ -35,6 +35,7 @@ public class p5
             M1 = m.SumarStock(M1, M2);
             o.MostrarMatrizObjetual(M1);
         }
+        
     }
     
 }
