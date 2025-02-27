@@ -401,6 +401,27 @@ public class Metodos
             O.MostrarMatrizObjetual(grupo);
         }
     }
+    public void mayorVenta (ObjVentas [][]m)
+    {
+        String mayorVenta = ""; //un obj se declara como null y no con 0 orque es un obj y no un int 
+        int mayorVentaTotal = 0;
+        for (int i = 0; i < m.length; i++) 
+        {
+            int sumaVentas = 0;
+            for (int j = 1; j < m[0].length; j++) 
+            { // Sumamos solo las columnas de ventas
+                sumaVentas += m[i][j].getVentas();
+            }
+
+            if (sumaVentas > mayorVentaTotal) {
+                mayorVentaTotal = sumaVentas;
+                mayorVenta = m[i][0].getNombre(); 
+            }
+        }
+        System.out.println("El vendedor con la mayor venta es: " + mayorVenta + " con una venta de " + mayorVentaTotal);
+        
+    }
+
 }
 
     
