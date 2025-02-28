@@ -59,7 +59,8 @@ public class principal
                 
                     break;
                 case 10:
-                
+                    p10 punto10 = new p10();
+                    punto10.punto10(d);
                     break;
         
                 default:

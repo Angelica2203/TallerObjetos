@@ -421,6 +421,22 @@ public class Metodos
         System.out.println("El vendedor con la mayor venta es: " + mayorVenta + " con una venta de " + mayorVentaTotal);
         
     }
+    public void ProductosOferta(ObjOferta[][] m) 
+    {
+        int cont = 0;
+        for (int i = 0; i < m.length; i++) 
+        {
+            for (int j = 0; j < m.length; j++) 
+            {
+                if (m[i][j].isOferta()) 
+                {
+                    cont++;
+                } 
+                
+            }
+        }
+        System.out.println("La cantidad de productos en oferta es: " + cont);
+    }
 
 }
 
